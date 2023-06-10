@@ -1,17 +1,284 @@
 <!DOCTYPE html>
 <head>
-  <title>Magdalena Pawnshop</title>
-  <link rel="stylesheet" href="styles/forms.css"
+  <title>Nephrozone Health Care</title>
+  <link rel="stylesheet" href="styles/forms.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 <body>
-  <style>
-    
-  </style>
-  <form class="mainform">
-    <label for="PTCode">Pawn Ticket Number: </label><br><br>
-    <input type="text" id="PTCode" name="PTCode" maxlength="10" onkeypress="return onlyNumberKey(event)"/><br><br>
-    <button class="search-button">Inquire Pawn</button>
-  </form>
+  <header>
+    <div class="mainform">
+      <h2>Nephrozone Electronic Health Care Records System</h2>
+      <p>Created to be compliant with HL7 Record Management Systems.</p>
+    </div>
+  </header>
+  <div class="w3-bar w3-black">
+    <button class="w3-bar-item w3-button" onclick="openScreen('Patient')">Patient</button>
+    <button class="w3-bar-item w3-button" onclick="openScreen('Encounter')">Encounter</button>
+    <button class="w3-bar-item w3-button" onclick="openScreen('HealthcareProvider')">Healthcare Provider</button>
+    <button class="w3-bar-item w3-button" onclick="openScreen('Medication')">Medication </button>
+    <button class="w3-bar-item w3-button" onclick="openScreen('LaboratoryResult')">Laboratory Result </button>
+    <button class="w3-bar-item w3-button" onclick="openScreen('ImagingStudy')">Imaging Study</button>
+    <button class="w3-bar-item w3-button" onclick="openScreen('Procedure')">Procedure</button>
+    <button class="w3-bar-item w3-button" onclick="openScreen('Allergy')">Allergy</button>
+    <button class="w3-bar-item w3-button" onclick="openScreen('Immunization')">Immunization</button>
+    <button class="w3-bar-item w3-button" onclick="openScreen('VitalSigns')">Vital Signs</button>
+  </div>
+  
+  <div id="Patient" class="w3-container city">
+    <h2>Patient</h2>
+    <form id="PatientForm" name="PatientForm" class="mainform">
+      <label for="Patient_ID">Patient ID: </label><br>
+      <input type="text" id="PatientID" name="PatientID" maxlength="10" onkeypress="return onlyNumberKey(event)"/><br>
+      <label for="First_Name">Patient FirstName: </label><br>
+      <input type="text" id="c" name="FirstName" maxlength="20"/><br>
+      <label for="Last_Name">Patient LastName: </label><br>
+      <input type="text" id="LastName" name="LastName" maxlength="20"/><br>
+      <label for="DateofBirth">Date Of Birth: </label><br>
+      <input type="date" id="DateOfBirth" name="DateOfBirth"/><br>
+      <label for="Gend">Gender: </label><br>
+      <input type="text" id="Gender" name="Gender" maxlength="20"/><br>
+      <label for="Addr">Address: </label><br>
+      <input type="text" id="Address" name="Address" maxlength="20"/><br>
+      <label for="PhoneNo">Phone Number: </label><br>
+      <input type="text" id="PhoneNum" name="PhoneNum" maxlength="10" onkeypress="return onlyNumberKey(event)"/><br>
+      <label for="Emails">Email: </label><br>
+      <input type="text" id="Email" name="Email" maxlength="50"/><br>
+
+      <label for="InsInfo">Insurance Information: </label><br>
+      <input type="text" id="InsuranceInfo" name="InsuranceInfo" maxlength="20"/><br>
+      <label for="Emergncy">Emergency Contact Details: </label><br>
+      <input type="text" id="Emergency" name="Emergency" maxlength="20"/><br>
+      <label for="Allrgy">Allergies: </label><br>
+      <input type="text" id="Allergies" name="Allergies" maxlength="100"/><br>
+      <label for="MedHist">Medical History: </label><br>
+      <input type="text" id="MedicalHistory" name="MedicalHistory" maxlength="100"/><br>
+      <label for="FamHist">Family History: </label><br>
+      <input type="text" id="FamilyHistory" name="FamilyHistory" maxlength="100"/><br>
+
+      <button class="search-button">Save Details</button>
+    </form>
+  </div>
+
+  <div id="Encounter" class="w3-container city"  style="display:none">
+    <h2>Encounter</h2>
+    <form id="EncounterForm" name="EncounterForm" class="mainform">
+      <label for="EncID">Encounter ID: </label><br>
+      <input type="text" id="EncounterID" name="EncounterID" maxlength="10" onkeypress="return onlyNumberKey(event)"/><br>
+      <label for="Patient_ID">Patient ID: </label><br>
+      <input type="text" id="PatientID" name="PatientID" maxlength="10" onkeypress="return onlyNumberKey(event)"/><br>
+
+      <label for="EncountDate">Date Of Encounter: </label><br>
+      <input type="date" id="DateOfEncounter" name="DateOfEncounter"/><br>
+      <label for="EncType">Encounter Type: </label><br>
+      <select id="EncounterType" name="EncounterType"/>
+        <option value="InPatient">InPatient</option>
+        <option value="OutPatient">OutPatient</option>
+        <option value="Emergency">Emergency</option>
+        <option value="Others">Others</option>
+      </select>
+      <br>
+      <label for="HPI">Healthcare Provider ID: </label><br>
+      <input type="text" id="HealthcareProviderID" name="HealthcareProviderID" maxlength="10" onkeypress="return onlyNumberKey(event)"/><br>
+      <label for="Compl">Chief Complaint: </label><br>
+      <input type="text" id="ChiefComplaint" name="ChiefComplaint" maxlength="20"/><br>
+
+      <label for="HPI">History of Present Illness: </label><br>
+      <input type="text" id="HistoryPresentIllness" name="HistoryPresentIllness" maxlength="20"/><br>
+      <label for="PEF">Physical Examination Findings: </label><br>
+      <input type="text" id="PhysicalExam" name="PhysicalExam" maxlength="20"/><br>
+      <label for="Diag">Diagnosis: </label><br>
+      <input type="text" id="Diagnosis" name="Diagnosis" maxlength="20"/><br>
+      <label for="TreatM">Treatment: </label><br>
+      <input type="text" id="Treatment" name="Treatment" maxlength="20"/><br>
+
+      <button class="search-button">Save Details</button>
+    </form>
+  </div>
+
+  <div id="HealthcareProvider" class="w3-container city"  style="display:none">
+    <h2>Health Care Provider</h2>
+    <form id="HealthcareProviderForm" name="HealthcareProviderForm" class="mainform">
+      <label for="HPFID">Health Care Provider ID: </label><br>
+      <input type="text" id="HealthCareID" name="HealthCareID" maxlength="10" onkeypress="return onlyNumberKey(event)"/><br>
+      <label for="First_Name">Patient FirstName: </label><br>
+      <input type="text" id="PatientFirstName" name="PatientFirstName" maxlength="20"/><br>
+      <label for="Last_Name">Patient LastName: </label><br>
+      <input type="text" id="PatientLastName" name="PatientLastName" maxlength="20"/><br>
+      <label for="Spec">Specialty: </label><br>
+      <input type="text" id="Specialty" name="Specialty" maxlength="20"/><br>
+      <label for="ContactInf">Contact Information: </label><br>
+      <input type="text" id="ContactInformation" name="ContactInformation" maxlength="10" onkeypress="return onlyNumberKey(event)"/><br>
+      <label for="SchedAvail">Schedule/Availability: </label><br>
+      <input type="date" id="ScheduleAvailability" name="ScheduleAvailability"/><br>
+      
+      <button class="search-button">Save Details</button>
+    </form>
+  </div>
+  
+
+  <div id="Medication" class="w3-container city"  style="display:none">
+    <h2>Medication</h2>
+    <form id="MedicationForm" name="MedicationForm" class="mainform">
+      <label for="MID">Medication ID: </label><br>
+      <input type="text" id="MedicationID" name="MedicationID" maxlength="10" onkeypress="return onlyNumberKey(event)"/><br>
+      <label for="First_Name">Medication Name: </label><br>
+      <input type="text" id="MedicationName" name="MedicationName" maxlength="20"/><br>
+      <label for="Dos">Dosage: </label><br>
+      <input type="text" id="Dosage" name="Dosage" maxlength="20"/><br>
+      <label for="Freq">Frequency: </label><br>
+      <input type="text" id="Frequency" name="Frequency" maxlength="20"/><br>
+      
+      <label for="StrtDate">Start Date: </label><br>
+      <input type="date" id="StartDate" name="StartDate"/><br>
+      <label for="EdDate">End Date: </label><br>
+      <input type="date" id="EndDate" name="EndDate"/><br>
+      <label for="HPI">Prescribed Healthcare Provider ID: </label><br>
+      <input type="text" id="HealthcareProviderID" name="HealthcareProviderID" maxlength="10" onkeypress="return onlyNumberKey(event)"/><br>
+      <label for="Patient_ID">Patient ID: </label><br>
+      <input type="text" id="PatientID" name="PatientID" maxlength="10" onkeypress="return onlyNumberKey(event)"/><br>
+
+      <button class="search-button">Save Details</button>
+    </form>
+  </div>
+
+  <div id="LaboratoryResult" class="w3-container city"  style="display:none">
+    <h2>Laboratory Result</h2>
+    <form id="LaboratoryResultForm" name="LaboratoryResultForm" class="mainform">
+      <label for="MID">Result ID: </label><br>
+      <input type="text" id="ResultID" name="ResultID" maxlength="10" onkeypress="return onlyNumberKey(event)"/><br>
+      <label for="Patient_ID">Patient ID: </label><br>
+      <input type="text" id="PatientID" name="PatientID" maxlength="10" onkeypress="return onlyNumberKey(event)"/><br>
+
+      <label for="Test_Name">Test Name: </label><br>
+      <input type="text" id="TestName" name="TestName" maxlength="20"/><br>
+      <label for="Test_Date">Test Date: </label><br>
+      <input type="date" id="TestDate" name="TestDate"/><br>
+      <label for="Test_Result">Test Result: </label><br>
+      <input type="text" id="TestResult" name="TestResult" maxlength="20"/><br>
+      <label for="RefRange">Reference Range: </label><br>
+      <input type="text" id="ReferenceRange" name="ReferenceRange" maxlength="20"/><br>
+      <label for="HPI">Ordering Healthcare Provider ID: </label><br>
+      <input type="text" id="HealthcareProviderID" name="HealthcareProviderID" maxlength="10" onkeypress="return onlyNumberKey(event)"/><br>
+     
+      <button class="search-button">Save Details</button>
+    </form>
+  </div>
+
+  <div id="ImagingStudy" class="w3-container city"  style="display:none">
+    <h2>Imaging Study</h2>
+    <form id="ImagingStudyForm" name="ImagingStudyForm" class="mainform">
+      <label for="SID">Study ID: </label><br>
+      <input type="text" id="StudyID" name="StudyID" maxlength="10" onkeypress="return onlyNumberKey(event)"/><br>
+      <label for="Patient_ID">Patient ID: </label><br>
+      <input type="text" id="PatientID" name="PatientID" maxlength="10" onkeypress="return onlyNumberKey(event)"/><br>
+
+      <label for="StudType">Study Type: </label><br>
+      <select id="StudyType" name="StudyType"/>
+        <option value="X-Ray">X-Ray</option>
+        <option value="MRI">MRI</option>
+        <option value="CTScan">CT Scan</option>
+        <option value="Ultrasound">Ultrasound</option>
+      </select>
+      <label for="Study_Date">Study Date: </label><br>
+      <input type="date" id="StudyDate" name="StudyDate"/><br>
+      <label for="Imaging_Findings">Imaging Findings: </label><br>
+      <input type="text" id="ImagingFindings" name="ImagingFindings" maxlength="50"/><br>
+      <label for="Intrpret">Interpretation: </label><br>
+      <input type="text" id="Interpretation" name="Interpretation" maxlength="50"/><br>
+
+      <button class="search-button">Save Details</button>
+    </form>
+  </div>
+
+  <div id="Procedure" class="w3-container city"  style="display:none">
+    <h2>Procedure</h2>
+    <form id="ProcedureForm" name="ProcedureForm" class="mainform">
+      <label for="ProcID">Procedure ID: </label><br>
+      <input type="text" id="ProcedureID" name="ProcedureID" maxlength="10" onkeypress="return onlyNumberKey(event)"/><br>
+      <label for="Patient_ID">Patient ID: </label><br>
+      <input type="text" id="PatientID" name="PatientID" maxlength="10" onkeypress="return onlyNumberKey(event)"/><br>
+      <label for="Proc_Date">Procedure Date: </label><br>
+      <input type="date" id="ProcedureDate" name="ProcedureDate"/><br>
+      <label for="ProcType">Procedure Type: </label><br>
+      <input type="text" id="ProcedureType" name="ProcedureType" maxlength="50"/><br>
+      <label for="HPI">Performing Healthcare Provider ID: </label><br>
+      <input type="text" id="HealthcareProviderID" name="HealthcareProviderID" maxlength="10" onkeypress="return onlyNumberKey(event)"/><br>
+      <label for="AnethDet">Anesthesia Details (if applicable): </label><br>
+      <input type="text" id="AnesthesiaDetails" name="AnesthesiaDetails" maxlength="50"/><br>
+
+      <button class="search-button">Save Details</button>
+    </form>
+  </div>
+
+  <div id="Allergy" class="w3-container city"  style="display:none">
+    <h2>Allergy</h2>
+    <form id="AllergyForm" name="AllergyForm" class="mainform">
+      <label for="AllerID">Allergy ID: </label><br>
+      <input type="text" id="AllergyID" name="AllergyID" maxlength="10" onkeypress="return onlyNumberKey(event)"/><br>
+      <label for="Patient_ID">Patient ID: </label><br>
+      <input type="text" id="PatientID" name="PatientID" maxlength="10" onkeypress="return onlyNumberKey(event)"/><br>
+      <label for="AllerName">Allergen Name: </label><br>
+      <input type="text" id="AllergenName" name="AllergenName" maxlength="50"/><br>
+      <label for="ReactDetails">Reaction Details: </label><br>
+      <input type="text" id="ReactionDetails" name="ReactionDetails" maxlength="50"/><br>
+      <label for="SevType">Severity: </label><br>
+      <select id="Severity" name="Severity"/>
+        <option value="Critical">Critical</option>
+        <option value="High">High</option>
+        <option value="Tolerable">Tolerable</option>
+        <option value="Low">Low</option>
+      </select>
+
+      <button class="search-button">Save Details</button>
+    </form>
+  </div>
+
+  <div id="Immunization" class="w3-container city"  style="display:none">
+    <h2>Immunization</h2>
+    <form id="ImmunizationForm" name="ImmunizationForm" class="mainform">
+      <label for="ImmunID">Immunization ID: </label><br>
+      <input type="text" id="ImmunizationID" name="ImmunizationID" maxlength="10" onkeypress="return onlyNumberKey(event)"/><br>
+      <label for="Patient_ID">Patient ID: </label><br>
+      <input type="text" id="PatientID" name="PatientID" maxlength="10" onkeypress="return onlyNumberKey(event)"/><br>
+      <label for="VaccName">Vaccine Name: </label><br>
+      <input type="text" id="VaccineName" name="VaccineName" maxlength="50"/><br>
+      <label for="Admin_Date">Administration Date: </label><br>
+      <input type="date" id="AdministrationDate" name="AdministrationDate"/><br>
+      
+      <label for="Dos">Dose: </label><br>
+      <input type="text" id="Dose" name="Dose" maxlength="10" onkeypress="return onlyNumberKey(event)"/><br>
+      <label for="RouteOfAdmin">Route of Administration: </label><br>
+      <input type="text" id="RouteOfAdministration" name="RouteOfAdministration" maxlength="50"/><br>
+      <label for="VaccInfo">Vaccinator Information: </label><br>
+      <input type="text" id="VaccinatorInformation" name="VaccinatorInformation" maxlength="50"/><br>
+
+      <button class="search-button">Save Details</button>
+    </form>
+  </div>
+
+  <div id="VitalSigns" class="w3-container city"  style="display:none">
+    <h2>Vital Signs</h2>
+    <form id="VitalSignsForm" name="VitalSignsForm" class="mainform">
+      <label for="VitSigID">Vital Signs ID: </label><br>
+      <input type="text" id="VitalSignsID" name="VitalSignsID" maxlength="10" onkeypress="return onlyNumberKey(event)"/><br>
+      <label for="Patient_ID">Patient ID: </label><br>
+      <input type="text" id="PatientID" name="PatientID" maxlength="10" onkeypress="return onlyNumberKey(event)"/><br>
+      <label for="Meas_Date">Measurement Date: </label><br>
+      <input type="date" id="MeasurementDate" name="MeasurementDate"/><br>
+      <label for="BP">Blood Pressure: </label><br>
+      <input type="text" id="BloodPressure" name="BloodPressure" maxlength="50"/><br>
+      <label for="HR">Heart Rate: </label><br>
+      <input type="text" id="HeartRate" name="HeartRate" maxlength="10" onkeypress="return onlyNumberKey(event)"/><br>
+      <label for="RR">Respiratory Rate: </label><br>
+      <input type="text" id="RespiratoryRate" name="RespiratoryRate" maxlength="10" onkeypress="return onlyNumberKey(event)"/><br>
+      <label for="T">Temperature: </label><br>
+      <input type="text" id="Temperature" name="Temperature" maxlength="10" onkeypress="return onlyNumberKey(event)"/><br>
+      <label for="OS">Oxygen Saturation: </label><br>
+      <input type="text" id="OxygenSaturation" name="OxygenSaturation" maxlength="10" onkeypress="return onlyNumberKey(event)"/><br>
+
+      <button class="search-button">Save Details</button>
+    </form>
+  </div>
 
   <script>
     function onlyNumberKey(evt) {
@@ -21,6 +288,15 @@
         if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
             return false;
         return true;
+    }
+
+    function openScreen(cityName) {
+      var i;
+      var x = document.getElementsByClassName("city");
+      for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";  
+      }
+      document.getElementById(cityName).style.display = "block";  
     }
   </script>
 </body>
